@@ -1,0 +1,11 @@
+C:\Users\Gabriel\source\repos\GabrielCommerce\GabrielCommerce\bin\Debug\netcoreapp2.0\GabrielCommerce.deps.json
+C:\Users\Gabriel\source\repos\GabrielCommerce\GabrielCommerce\bin\Debug\netcoreapp2.0\GabrielCommerce.runtimeconfig.json
+C:\Users\Gabriel\source\repos\GabrielCommerce\GabrielCommerce\bin\Debug\netcoreapp2.0\GabrielCommerce.runtimeconfig.dev.json
+C:\Users\Gabriel\source\repos\GabrielCommerce\GabrielCommerce\bin\Debug\netcoreapp2.0\GabrielCommerce.dll
+C:\Users\Gabriel\source\repos\GabrielCommerce\GabrielCommerce\bin\Debug\netcoreapp2.0\GabrielCommerce.pdb
+C:\Users\Gabriel\source\repos\GabrielCommerce\GabrielCommerce\obj\Debug\netcoreapp2.0\GabrielCommerce.csprojResolveAssemblyReference.cache
+C:\Users\Gabriel\source\repos\GabrielCommerce\GabrielCommerce\obj\Debug\netcoreapp2.0\GabrielCommerce.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\source\repos\GabrielCommerce\GabrielCommerce\obj\Debug\netcoreapp2.0\GabrielCommerce.AssemblyInfoInputs.cache
+C:\Users\Gabriel\source\repos\GabrielCommerce\GabrielCommerce\obj\Debug\netcoreapp2.0\GabrielCommerce.AssemblyInfo.cs
+C:\Users\Gabriel\source\repos\GabrielCommerce\GabrielCommerce\obj\Debug\netcoreapp2.0\GabrielCommerce.dll
+C:\Users\Gabriel\source\repos\GabrielCommerce\GabrielCommerce\obj\Debug\netcoreapp2.0\GabrielCommerce.pdb
