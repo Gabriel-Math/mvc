@@ -13124,24 +13124,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Gabriel\\.nuget\\packages\\": {},
+    "C:\\Users\\Lab\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gabriel\\source\\repos\\GabrielCommerce\\GabrielCommerce\\GabrielCommerce.csproj",
+      "projectUniqueName": "C:\\Users\\Lab\\Source\\Repos\\mvc\\GabrielCommerce\\GabrielCommerce.csproj",
       "projectName": "GabrielCommerce",
-      "projectPath": "C:\\Users\\Gabriel\\source\\repos\\GabrielCommerce\\GabrielCommerce\\GabrielCommerce.csproj",
-      "packagesPath": "C:\\Users\\Gabriel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gabriel\\source\\repos\\GabrielCommerce\\GabrielCommerce\\obj\\",
+      "projectPath": "C:\\Users\\Lab\\Source\\Repos\\mvc\\GabrielCommerce\\GabrielCommerce.csproj",
+      "packagesPath": "C:\\Users\\Lab\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lab\\Source\\Repos\\mvc\\GabrielCommerce\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Gabriel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Lab\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
