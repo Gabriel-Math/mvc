@@ -19,13 +19,13 @@ namespace GabrielCommerce.Controllers
             _context = context;
         }
 
-        // GET: Produtos
+        // GET: Produto
         public async Task<IActionResult> Index()
         {
             return View(await _context.Produtos.ToListAsync());
         }
 
-        // GET: Produtos/Details/5
+        // GET: Produto/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -43,18 +43,18 @@ namespace GabrielCommerce.Controllers
             return View(produto);
         }
 
-        // GET: Produtos/Create
+        // GET: Produto/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Produtos/Create
+        // POST: Produto/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,PrecoUnitario")] Produto produto)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Preco,Categoria")] Produto produto)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace GabrielCommerce.Controllers
             return View(produto);
         }
 
-        // GET: Produtos/Edit/5
+        // GET: Produto/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -81,12 +81,12 @@ namespace GabrielCommerce.Controllers
             return View(produto);
         }
 
-        // POST: Produtos/Edit/5
+        // POST: Produto/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,PrecoUnitario")] Produto produto)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Preco,Categoria")] Produto produto)
         {
             if (id != produto.Id)
             {
@@ -116,7 +116,7 @@ namespace GabrielCommerce.Controllers
             return View(produto);
         }
 
-        // GET: Produtos/Delete/5
+        // GET: Produto/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -134,7 +134,7 @@ namespace GabrielCommerce.Controllers
             return View(produto);
         }
 
-        // POST: Produtos/Delete/5
+        // POST: Produto/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

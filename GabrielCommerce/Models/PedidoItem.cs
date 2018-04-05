@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace GabrielCommerce.Models
 {
     public class PedidoItem
     {
-        public int ProdutoId { get; set; }
-        public Produto Produto { get; set; }
-
+        [Key]
         public int PedidoId { get; set; }
-        public Pedido Pedido { get; set; }
-
+        public virtual Pedido Pedido { get; set; }
+        [Key]
+        public int ProdutoId { get; set; }
+        public virtual Produto Produto { get; set; }
     }
 }

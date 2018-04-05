@@ -19,14 +19,14 @@ namespace GabrielCommerce.Controllers
             _context = context;
         }
 
-        // GET: Pedidos
+        // GET: Pedido
         public async Task<IActionResult> Index()
         {
-            var bDContext = _context.Pedidos.Include(p => p.Usuario);
+            var bDContext = _context.Pedidos.Include(p => p.Usuario).Include(p => p.Itens).Include("Itens.Produto");
             return View(await bDContext.ToListAsync());
         }
 
-        // GET: Pedidos/Details/5
+        // GET: Pedido/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -45,31 +45,7 @@ namespace GabrielCommerce.Controllers
             return View(pedido);
         }
 
-        // GET: Pedidos/Create
-        public IActionResult Create()
-        {
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Id");
-            return View();
-        }
-
-        // POST: Pedidos/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Data,UsuarioId")] Pedido pedido)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(pedido);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Id", pedido.UsuarioId);
-            return View(pedido);
-        }
-
-        // GET: Pedidos/Edit/5
+        // GET: Pedido/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -86,18 +62,14 @@ namespace GabrielCommerce.Controllers
             return View(pedido);
         }
 
-        // POST: Pedidos/Edit/5
+
+        // POST: Pedido/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Data,UsuarioId")] Pedido pedido)
+        public async Task<IActionResult> Edit(Pedido pedido)
         {
-            if (id != pedido.Id)
-            {
-                return NotFound();
-            }
-
             if (ModelState.IsValid)
             {
                 try
@@ -122,7 +94,7 @@ namespace GabrielCommerce.Controllers
             return View(pedido);
         }
 
-        // GET: Pedidos/Delete/5
+        // GET: Pedido/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -141,7 +113,7 @@ namespace GabrielCommerce.Controllers
             return View(pedido);
         }
 
-        // POST: Pedidos/Delete/5
+        // POST: Pedido/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -155,6 +127,49 @@ namespace GabrielCommerce.Controllers
         private bool PedidoExists(int id)
         {
             return _context.Pedidos.Any(e => e.Id == id);
+        }
+
+        public IActionResult SelecionarProduto(int? id)
+        {
+            var produtos = _context.Produtos.ToList();
+            ViewBag.PedidoId = id;
+            return View(produtos);
+        }
+
+        [HttpGet]
+        public IActionResult AddToCart(int id, int? pedidoId)
+        {
+            var produto = _context.Produtos.Find(id);
+            var pedido = pedidoId.HasValue ?
+
+                _context.Pedidos.Include(p => p.Itens).First(p => p.Id == pedidoId.Value) :
+
+                new Pedido()
+                {
+                    Itens = new List<PedidoItem>()
+                };
+
+            pedido.Itens.Add(new PedidoItem { ProdutoId = id });
+
+            if (pedidoId.HasValue)
+                _context.Update(produto);
+            else
+                _context.Add(pedido);
+
+            _context.SaveChanges();
+            ViewBag.PedidoId = pedido.Id;
+            return RedirectToAction("Carrinho", new { pedidoId = pedido?.Id });
+        }
+
+        [HttpGet("[controller]/[action]/{pedidoId}")]
+        public IActionResult Carrinho(int pedidoId)
+        {
+            var pedido = _context.Pedidos
+                .Include(p => p.Itens)
+                .Include("Itens.Produto")
+                .First(p => p.Id == pedidoId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Nome");
+            return View(pedido);
         }
     }
 }
