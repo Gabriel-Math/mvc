@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace GabrielCommerce.Data
 {
@@ -18,15 +17,21 @@ namespace GabrielCommerce.Data
             }
 
             //Simulando um usuário já cadastrado e uma compra
-            var usuario = new Usuario { Nome = "Asdrubal", Email = "teste@teste.com", Cpf = "12345678901" };
+            var usuario = new Usuario { Nome = "Gabriel Matheus", Email = "gabriel@gmail.com", Cpf = "12345678901" };
             context.Usuarios.Add(usuario);
             context.SaveChanges();
 
-            var produto4 = new Produto { Nome = "produto4", Preco = 1000 };
-            var produto1 = new Produto { Nome = "produto1", Preco = 1000 };
-            var produto2 = new Produto { Nome = "produto2", Preco = 2000 };
-            var produto3 = new Produto { Nome = "produto3", Preco = 3000 };
-            var produtos = new[] { produto1, produto2, produto3, produto4 };
+            var produto1 = new Produto { Nome = "Mouse", Categoria= "Perifericos", Preco = 30 };
+            var produto2 = new Produto { Nome = "Teclado", Categoria = "Perifericos", Preco = 100 };
+            var produto3 = new Produto { Nome = "Placa de video", Categoria = "Componentes", Preco = 550 };
+            var produto4 = new Produto { Nome = "Gabinete", Categoria = "Componentes", Preco = 100 };
+            var produto5 = new Produto { Nome = "Fonte", Categoria = "Componentes", Preco = 250 };
+            var produto6 = new Produto { Nome = "Placa mãe", Categoria = "Componentes", Preco = 400 };
+            var produto7 = new Produto { Nome = "Hard Disk", Categoria = "Componentes", Preco = 400 };
+            var produto8 = new Produto { Nome = "Memoria RAM", Categoria = "Componentes", Preco = 180 };
+            var produto9 = new Produto { Nome = "Processador", Categoria = "Componentes", Preco = 1500 };
+
+            var produtos = new[] { produto1, produto2, produto3, produto4, produto5, produto6, produto7, produto8, produto9 };
             context.Produtos.AddRange(produtos);
             context.SaveChanges();
 
@@ -34,7 +39,7 @@ namespace GabrielCommerce.Data
             context.Pedidos.Add(pedido);
             context.SaveChanges();
 
-            var produtosComprados = new List<Produto> { produto1, produto3 };
+            var produtosComprados = new List<Produto> { produto1, produto3, produto8 };
 
             //Salvando cada item de Pedido
             foreach (var prod in produtosComprados)
