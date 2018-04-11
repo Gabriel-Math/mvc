@@ -39,10 +39,10 @@
         </tbody>
         <tfoot>
             <tr class="visible-xs">
-                <td class="text-center"><strong>Total 1.99</strong></td>
+                <td class="text-center"><strong></strong></td>
             </tr>
             <tr>
-                <td><a asp-action="SelecionarProduto" asp-route-id="@Model.Id" class="btn btn-default"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                <td><a asp-action="SelecionarProduto" asp-route-id="@Model.Id" class="btn btn-default"><i class="fa fa-angle-left"></i> Continuar comprando </a></td>
                 <td class="hidden-xs"></td>
                 <td class="hidden-xs text-center"><strong>Total @string.Format("{0:C}", Model.Itens.Sum(i => i.Produto.Preco))</strong></td>
             </tr>
@@ -68,7 +68,7 @@
                     <span asp-validation-for="Data" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <input type="submit" asp-action="Edit" asp-controller="Pedido" value="Confirmar" class="btn btn-default" />
+                    <input type="submit" asp-action="Edit" asp-controller="Pedidos" value="Confirmar" class="btn btn-default" />
                 </div>
             </form>
         </div>
